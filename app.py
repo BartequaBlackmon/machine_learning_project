@@ -9,6 +9,25 @@ from sklearn.metrics import mean_squared_error
 from datetime import datetime, timedelta
 from ipykernel import kernelapp as app
 
+# Set seaborn style
+sns.set_style('whitegrid')
+
+# Main header with emojis
+st.markdown("""
+    <h1 style='text-align: center; color: teal;'>🚀 Interactive Sales Analytics & Forecasting Tool 📊</h1>
+    <hr>
+""", unsafe_allow_html=True)
+
+# Sidebar Menu Navigation
+menu = st.sidebar.radio("Navigation Menu", ["Home", "Upload Dataset", "Sales Analysis", "Model Training", "Visualizations"])
+
+if menu == "Home":
+    st.write("""
+        Welcome to the **Interactive Sales Analytics & Forecasting Dashboard**! This tool allows you to explore sales trends, analyze data, forecast future sales trends, and visualize patterns over time.
+    """)
+    st.image('https://media.giphy.com/media/3xz2BLz8tEXnUv6yjI/giphy.gif', use_column_width=True)
+
+
 # Upload dataset section
 st.sidebar.header("Upload Your Dataset")
 uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type="csv")
