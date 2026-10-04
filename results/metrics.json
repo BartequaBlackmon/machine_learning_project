@@ -1,0 +1,16 @@
+{
+  "target": "daily quantity",
+  "objective": "expected daily revenue = price * predicted quantity",
+  "train_rows": 4308,
+  "test_rows": 1080,
+  "test_start": "2014-12-15",
+  "test_end": "2015-09-10",
+  "quantity_mae": 3.1562882706316175,
+  "baseline_quantity_mae": 7.77202964338526,
+  "revenue_mae": 39.86269200374373,
+  "excluded_conflicting_rows": 16,
+  "excluded_dates": [
+    "2013-03-01"
+  ],
+  "calendar_duplicate_rows_removed": 2
+}
