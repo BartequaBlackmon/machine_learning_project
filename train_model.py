@@ -16,10 +16,11 @@ OUT = ROOT / 'results'
 OUT.mkdir(exist_ok=True)
 sales = pd.read_csv(ROOT / 'transactionstore.csv')
 calendar = pd.read_csv(ROOT / 'dateinfo.csv')
+alternate = pd.read_csv(ROOT / 'selldata (version 1).xlsb.csv')
 products = pd.read_csv(ROOT / 'selldata.csv')
-for frame in (sales, calendar, products):
+for frame in (sales, calendar, alternate):
     frame['CALENDAR_DATE'] = pd.to_datetime(frame['CALENDAR_DATE'], format='mixed')
-assert calendar.equals(products), 'The two calendar files disagree.'
+assert calendar.equals(alternate), 'The two calendar files disagree.'
 keys = ['CALENDAR_DATE', 'SELL_ID', 'SELL_CATEGORY']
 bad_dates = sales.loc[sales.duplicated(keys, keep=False), 'CALENDAR_DATE'].unique()
 bad_calendar_dates = calendar.loc[calendar.CALENDAR_DATE.duplicated(keep=False), 'CALENDAR_DATE'].unique()
